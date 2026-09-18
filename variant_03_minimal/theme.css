@@ -1,0 +1,171 @@
+/* =============================================================
+   VARIANT 03 - MINIMAL EDITORIAL  (whitespace, hairlines, one accent)
+   Palette DERIVED FROM THE BRAND LOGO (ux/pages/assets/logo.png):
+     magenta #802060 (the single accent) . gold #F0C020 (underline) . navy #204060 (ink)
+   Design language: tiny left wordmark nav with hairline bottom border,
+   oversized editorial hero, INDEXED single-column lists instead of cards,
+   inline sentence stats, borderless bottom-line form, one-line footer.
+   ============================================================= */
+:root{
+  --ink:#111820; --body:#4A5560; --line:#E2E6EA; --accent:#802060; --gold:#F0C020;
+  --navy:#204060; --bg:#FFFFFF; --soft:#F7F8F9;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em;line-height:1.18}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.center{text-align:center}
+.on{color:var(--accent)}
+
+/* ---- nav: tiny left wordmark, plain text links ---- */
+.nav{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:20}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+.brand img{height:28px}
+.brand span{white-space:nowrap}
+.links{display:flex;align-items:center;gap:26px}
+.links a{font-size:13px;color:var(--body);padding:4px 0;border-bottom:1px solid transparent}
+.links a:hover{border-bottom-color:var(--accent)}
+.cta-link{color:var(--accent)!important;font-weight:600}
+.burger{display:none;background:none;border:0;font-size:20px;color:var(--ink);cursor:pointer}
+@media(max-width:900px){
+  .burger{display:block}
+  .links{display:none;position:absolute;top:66px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);
+    flex-direction:column;align-items:flex-start;gap:0;padding:8px 24px 18px}
+  .links.open{display:flex}
+  .links a{padding:11px 0;width:100%;border-bottom:1px solid var(--soft)}
+}
+
+/* ---- buttons: text-first, minimal ---- */
+.btn{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.01em;padding:11px 20px;
+  border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:.15s}
+.btn:hover{background:var(--ink);color:#fff}
+.btn-pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-pri:hover{background:#5E1746;border-color:#5E1746}
+.btn-text{border:0;padding:11px 0;color:var(--accent);font-weight:600}
+.btn-text:hover{background:none;color:#5E1746}
+.btn-text::after{content:" \2192"}
+.btn-lg{padding:14px 26px;font-size:13.5px}
+.btns{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+
+/* ---- hero: oversized editorial ---- */
+.hero{padding:96px 0 72px}
+.hero .kicker{font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--body)}
+.hero h1{font-size:clamp(36px,6vw,64px);font-weight:600;margin-top:20px;max-width:16ch}
+.hero h1 em{font-style:normal;color:var(--accent);border-bottom:4px solid var(--gold)}
+.hero .lead{color:var(--body);font-size:17px;max-width:56ch;margin-top:24px}
+.hero .btns{margin-top:34px}
+.hero-meta{display:flex;gap:44px;flex-wrap:wrap;margin-top:52px;padding-top:26px;border-top:1px solid var(--line)}
+.hero-meta div b{display:block;font-size:26px;font-weight:600;letter-spacing:-.03em}
+.hero-meta div span{font-size:12.5px;color:var(--body)}
+
+/* ---- page head ---- */
+.page-head{padding:72px 0 30px;border-bottom:1px solid var(--line)}
+.page-head h1{font-size:clamp(30px,4.4vw,46px)}
+.page-head p{color:var(--body);font-size:16.5px;max-width:60ch;margin-top:14px}
+.crumbs{font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--body);margin-bottom:18px}
+.crumbs a:hover{color:var(--accent)}
+
+/* ---- sections ---- */
+.sec{padding:64px 0}
+.sec-soft{background:var(--soft)}
+.sec-h{margin-bottom:34px;display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+.sec-h h2{font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.sec-h p{color:var(--body);font-size:14.5px;max-width:52ch}
+
+/* ---- indexed list (replaces cards) ---- */
+.index{border-top:1px solid var(--line)}
+.index .item{display:grid;grid-template-columns:64px 1fr 1.4fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.index .num{font-size:12px;letter-spacing:1.5px;color:var(--accent);font-weight:600}
+.index h3{font-size:19px}
+.index p{color:var(--body);font-size:14.5px}
+.index ul{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.index li{font-size:13px;color:var(--body)}
+.index li::before{content:"\2022  ";color:var(--gold)}
+.index .item:hover h3{color:var(--accent)}
+@media(max-width:760px){.index .item{grid-template-columns:1fr;gap:8px}}
+
+/* ---- sentence-style stats ---- */
+.stat-line{display:flex;flex-wrap:wrap;gap:14px 56px;padding:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat-line div{display:flex;align-items:baseline;gap:10px}
+.stat-line b{font-size:32px;font-weight:600;letter-spacing:-.04em}
+.stat-line span{color:var(--body);font-size:14px}
+.quote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin-top:34px}
+.quote p{font-size:16px;color:var(--body)}
+.quote cite{display:block;margin-top:8px;font-style:normal;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent)}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:34px}
+@media(max-width:760px){.quotes{grid-template-columns:1fr}}
+
+/* ---- borderless form ---- */
+.form{border-top:1px solid var(--line);padding-top:34px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.field{margin-bottom:26px}
+.field label{display:block;font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--body);margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:15.5px;color:var(--ink);background:transparent;
+  border:0;border-bottom:1px solid var(--line);padding:6px 0}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--accent)}
+.form-ok{display:none;font-size:14px;color:var(--accent);border-left:2px solid var(--gold);padding-left:14px;margin-bottom:26px}
+.note{color:var(--body);font-size:13.5px;margin-top:20px}
+.eyebrow{display:inline-block;font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+@media(max-width:640px){.row{grid-template-columns:1fr}}
+
+/* ---- info ---- */
+.info{border-top:1px solid var(--line)}
+.info > div{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.info h3{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--body);font-weight:600}
+.info p{font-size:15.5px}
+.info a:hover{color:var(--accent)}
+.map{margin-top:30px;height:260px;border:1px solid var(--line);background:var(--soft);display:flex;align-items:center;
+  justify-content:center;color:var(--body);font-size:13.5px;text-align:center;padding:20px}
+.actions{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px;align-items:center}
+
+/* ---- editorial work rows ---- */
+.work{border-top:1px solid var(--line)}
+.work .row-item{display:grid;grid-template-columns:130px 1fr;gap:26px;py:0;padding:24px 0;border-bottom:1px solid var(--line);align-items:center}
+.work .thumb{height:82px;width:130px;display:flex;align-items:center;justify-content:center;font-size:26px;
+  background:var(--soft);border:1px solid var(--line);color:var(--accent)}
+.work h3{font-size:18px;margin-bottom:4px}
+.work p{color:var(--body);font-size:14.5px}
+.tag{display:block;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.work .row-item:hover h3{color:var(--accent)}
+@media(max-width:640px){.work .row-item{grid-template-columns:1fr}}
+
+/* ---- CTA band: hairline, no fill ---- */
+.cta-band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0}
+.cta-band h2{font-size:clamp(22px,3vw,32px);max-width:24ch}
+.cta-band p{color:var(--body);margin-top:12px}
+.cta-band .btns{margin-top:26px}
+
+/* ---- footer: single centred line ---- */
+.site-foot{border-top:1px solid var(--line);padding:44px 0 34px;text-align:center}
+.site-foot .brand{justify-content:center;margin-bottom:18px}
+.site-foot .brand img{height:30px}
+.foot-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:16px}
+.foot-links a{font-size:13px;color:var(--body)}
+.foot-links a:hover{color:var(--accent)}
+.site-foot p{color:var(--body);font-size:13.5px;margin-top:16px}
+.site-foot .base{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--body)}
+.foot-contact{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:14px}
+.foot-contact a{font-size:13.5px;color:var(--accent);border-bottom:1px solid transparent}
+.foot-contact a:hover{color:var(--ink);border-bottom-color:var(--line)}
+.news{display:flex;gap:10px;max-width:400px;margin:20px auto 0}
+.news input{flex:1;font:inherit;font-size:14px;padding:10px 12px;border:1px solid var(--line);background:#fff}
+.news .btn{border-color:var(--ink)}
+.news .form-ok{display:none;margin-top:12px;font-size:13px;color:var(--accent)}
+
+/* ---- top utility line (logo palette accents) ---- */
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:9px;padding-bottom:9px;font-size:12px;color:var(--body)}
+.top b{color:var(--accent);font-weight:600}
+.top a{color:var(--body)}
+.top a:hover{color:var(--accent)}
+@media(max-width:700px){.top .wrap{flex-direction:column;gap:4px}}
+
+/* ---- hero art: hairline bars in the logo palette ---- */
+.hero-art{display:flex;gap:10px;margin-top:36px}
+.hero-art span{height:6px;flex:1;background:var(--line)}
+.hero-art span:nth-child(1){background:var(--accent);flex:2}
+.hero-art span:nth-child(2){background:var(--gold)}
+.hero-art span:nth-child(3){background:var(--navy)}
